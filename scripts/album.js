@@ -91,16 +91,16 @@ var createSongRow = function(songNumber, songName, songLength) {
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
      
-     var albums = [albumPicasso, albumMarconi,albumMuse];
-     var index = 1;
-     albumImage.addEventListener("click", function(event) {
-         setCurrentAlbum(albums[index]);
-         index++;
-         if(index == albums.length) {
-             index = 0;
-         };
-     });
- 
+//     var albums = [albumPicasso, albumMarconi,albumMuse];
+//     var index = 1;
+//     albumImage.addEventListener("click", function(event) {
+//         setCurrentAlbum(albums[index]);
+//         index++;
+//         if(index == albums.length) {
+//             index = 0;
+//         };
+//     });
+// 
      songListContainer.addEventListener('mouseover', function(event) {
          
          // Only target individual song rows during event delegation
@@ -109,6 +109,7 @@ var createSongRow = function(songNumber, songName, songLength) {
              event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
          }
      });
+    
      
     for (var i = 0; i < songRows.length; i++) {
         songRows[i].addEventListener('mouseleave', function(event) {
