@@ -1,4 +1,3 @@
-// How would you apply this template to more realistic examples? If all of these albums were in fact different, would you have to write them all out in your HTML file instead, or is there an easier way to approach this?
 var collectionItemTemplate=
              '<div class="collection-album-container column fourth">'
    + '          <img src="assets/images/album_covers/01.png"/>'
