@@ -176,12 +176,14 @@ var getSongItem = function (element) {
             
             if (songItemNumber !== currentlyPlayingSong){
                 songItem.innerHTML = songItemNumber;
-            }}
-         );
-     }
-         songRows[i].addEventListener('click', function(event) {
-             // Event handler call
-             clickHandler(event.target);
+            }
+        });
+                                     
+            songRows[i].addEventListener('click', function(event) {
+                // Event handler call
+                clickHandler(event.target);
          });
+     }
+
  }
 
