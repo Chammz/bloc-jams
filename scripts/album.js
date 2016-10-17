@@ -119,7 +119,7 @@ var nextSong = function () {
     
     //set new current song
     currentlyPlayingSongNumber = currentSongIndex + 1;
-    currentSongFromalbum = currentAlbum.songs[currentSongIndex];
+    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
     
     //Update the Player Bar Information
     $('.currentl-playing .song-name').text(currentSongFromAlbum.title);
@@ -190,7 +190,7 @@ var previousSong = function() {
      
      var albums = [albumPicasso, albumMarconi,albumMuse];
      var index = 1;
-     albumImage.addEventListener("click", function(event) {
+     $albumImage.bind("click", function(event) {
          setCurrentAlbum(albums[index]);
          index++;
          if(index == albums.length) {
