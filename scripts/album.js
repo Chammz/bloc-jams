@@ -7,12 +7,14 @@ var setSong = function(songNumber) {
     currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
     
     currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
-        fortmats: ["mp3"],
+        formats: ["mp3"],
         preload: true
     });
     
     setVolume(currentVolume);
 };
+
+var $playPause = $('.main-controls .play-pause');
 
 var setVolume = function(volume) {
     if(currentSoundFile) {
@@ -192,6 +194,19 @@ var previousSong = function() {
     
 };
 
+var togglePlayFromPlayerBar = function() {
+    if(currentSoundFile.isPaused()) {
+        getSongNumberCell(currentlyPlayingSongNumber).html(pauseButtonTemplate);
+        $(this).html(playerBarPauseButton);
+        currentSoundFile.play();
+    } else {
+        getSongNumberCell(currentlyPlayingSongNumber).html(playButtonTemplate);
+        $(this).html(playerBarPlayButton);
+        currentSoundFile.pause();
+    }
+    
+}
+
 // Album button templates
  var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
  var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
@@ -212,6 +227,7 @@ var previousSong = function() {
      setCurrentAlbum(albumPicasso);
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
+     $playPause.click(togglePlayFromPlayerBar);
      
      var albums = [albumPicasso, albumMarconi,albumMuse];
      var index = 1;
